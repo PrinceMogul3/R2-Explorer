@@ -1,12 +1,23 @@
 // app global css in SCSS form
+
+// Unit conversion lives in these two functions and nowhere else.
+// Sizes below are written in px so a person can read them, and they
+// compile to em (media queries) or rem (widths). 0.0625 is 1/16.
+@function to-rem($px) { @return $px * 0.0625rem; }
+@function to-em($px)  { @return $px * 0.0625em; }
+
+body.body--dark {
+  background: #222222;
+}
+
 .bg-green {
   background-color: #4CAE4F;
 }
 
-$xs-breakpoint: 718px;
-$sm-breakpoint: 1024px;
-$md-breakpoint: 1439px;
-$lg-breakpoint: 1920px;
+$xs-breakpoint: to-em(718);
+$sm-breakpoint: to-em(1024);
+$md-breakpoint: to-em(1439);
+$lg-breakpoint: to-em(1920);
 
 .container,
 .container-sm,
@@ -21,7 +32,7 @@ $lg-breakpoint: 1920px;
 @media (min-width: $xs-breakpoint) {
   .container,
   .container-sm {
-    max-width: 540px;
+    max-width: to-rem(540);
   }
 }
 
@@ -29,7 +40,7 @@ $lg-breakpoint: 1920px;
   .container,
   .container-sm,
   .container-md {
-    max-width: 920px;
+    max-width: to-rem(920);
   }
 }
 
@@ -38,7 +49,7 @@ $lg-breakpoint: 1920px;
   .container-sm,
   .container-md,
   .container-lg {
-    max-width: 1140px;
+    max-width: to-rem(1140);
   }
 }
 
@@ -48,6 +59,6 @@ $lg-breakpoint: 1920px;
   .container-md,
   .container-lg,
   .container-xl {
-    max-width: 1440px;
+    max-width: to-rem(1440);
   }
 }
