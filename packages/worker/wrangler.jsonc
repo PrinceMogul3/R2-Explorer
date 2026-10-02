@@ -1,0 +1,14 @@
+{
+  "name": "r2-explorer",
+  "main": "src/deploy.ts",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./dashboard",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "single-page-application"
+  },
+  "r2_buckets": [
+    { "binding": "BUCKET", "bucket_name": "file-explorer" }
+  ]
+}
